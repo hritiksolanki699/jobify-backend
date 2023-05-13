@@ -8,8 +8,8 @@ import cors from "cors";
 import connectDB from "./db/connect.js";
 
 // routers
-import authRouter from "../server/routes/authRoutes.js";
-import jobsRouter from "../server/routes/jobsRoutes.js";
+import authRouter from "./routes/authRoutes.js";
+import jobsRouter from "./routes/jobsRoutes.js";
 
 dotenv.config();
 
