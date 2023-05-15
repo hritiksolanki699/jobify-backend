@@ -1,6 +1,9 @@
 import express from "express";
 import "express-async-errors";
 import morgan from "morgan";
+import helmet from "helmet";
+import xss from "xss-clean";
+import mongoSanitize from "express-mongo-sanitize";
 
 const app = express();
 import dotenv from "dotenv";
@@ -12,6 +15,10 @@ import authRouter from "./routes/authRoutes.js";
 import jobsRouter from "./routes/jobsRoutes.js";
 
 dotenv.config();
+app.use(express.json());
+app.use(helmet());
+app.use(xss());
+app.use(mongoSanitize());
 
 // middleware
 import notFoundMiddleware from "./middleware/not-found.js";
